@@ -1,0 +1,16 @@
+extends ../layout/templateBootstrap.pug
+
+block viewID
+  h3.d-flex.justify-content-center View User ID
+  p 
+      b Search Users by ID
+  table.table
+    tr
+      th Results
+    each val, key in users
+      tr 
+        td= key + ': ' + val 
+  .d-flex.justify-content-center
+    form
+      button(type="submit", class="btn btn-outline-dark", , formaction="/users") Confirm
+    

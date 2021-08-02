@@ -1,0 +1,23 @@
+extends ../layout/templateBootstrap.pug
+
+block login
+    h2.d-flex.justify-content-center Login page
+    if errorSignIn
+        each errorAlert in errorSignIn
+            .alert.alert-danger=errorAlert
+    form(action="/login", method="POST") 
+        label(for="focusEmail") Email  
+        input#focusEmail(type="email", name="email", class="form-control", placeholder="Email", aria-label="Email", aria-describedby="basic-addon1", value=values ? values.email : '')
+        br
+        label(for="focusPassword") Password
+        input#focusPassword(type="password", name="password", class="form-control", placeholder="Password", aria-label="Password", aria-describedby="basic-addon1")
+        br
+        .d-flex.justify-content-center 
+            button(type="submit", class="btn btn-outline-info") Sign In 
+            .ps-2 
+    .d-flex.justify-content-center 
+        .form-group
+            form(action="/signup" method="GET")
+                button(type="submit", class="btn btn-outline-secondary") Sign Up
+
+

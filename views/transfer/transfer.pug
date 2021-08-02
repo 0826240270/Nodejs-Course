@@ -1,0 +1,19 @@
+extends ../layout/templateBootstrap.pug
+
+block transfer
+    h2.d-flex.justify-content-center Transfer money
+    if errorSignIn
+        each errorAlert in errorSignIn
+            .alert.alert-danger=errorAlert
+    form(action="/transfer", method="POST") 
+        input(type="hidden", name="_csrf", value=csrfToken)
+        label(for="focusEmail") Email  
+        input#focusEmail(type="email", name="email", class="form-control", placeholder="Email", aria-label="Email", aria-describedby="basic-addon1")
+        br
+        label(for="focusMoney") Money
+        input#focusMoney(type="text", name="money", class="form-control", placeholder="money", aria-label="Money", aria-describedby="basic-addon1")
+        br
+        .d-flex.justify-content-center 
+            button(type="submit", class="btn btn-outline-info") Transfer
+
+

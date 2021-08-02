@@ -1,0 +1,16 @@
+.bg-light {
+    background-color: #6f42c1 !important;
+}
+
+.navbar-light .navbar-brand, .nav-item > a {
+    color: #f8f9fa !important;
+}
+
+
+th {
+    color:red;
+}
+
+.row .col-2 {
+    padding-left: 0 !important
+}

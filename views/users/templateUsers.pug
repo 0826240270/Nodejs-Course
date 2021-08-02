@@ -1,0 +1,24 @@
+extends ../layout/templateBootstrap.pug
+
+block templateUsers
+  h3.d-flex.justify-content-center User List
+  
+  form(action="/users/search", method="GET", class="d-flex pt-3")
+    input(type="text", name="name", class="form-control", placeholder="Username")
+    .p-2
+    button(type="submit", class="btn btn-outline-info") Search
+  
+  table.table
+    tr 
+      th Name 
+      th Phone
+      th View
+    each val in users
+      tr
+        td
+          img(src=val.avatar width=35 heigh=35)
+        td=  val.name 
+        td= 'Age: ' + val.age 
+        td 
+          a(href="users/" + val.id) view 
+  a(href="/product") Move to Product page
